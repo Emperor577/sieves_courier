@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sieves_courier/screens/auth/auth.screen.dart';
+import 'package:sieves_courier/screens/history/history.screen.dart';
 import 'package:sieves_courier/screens/home/home.dart';
+import 'package:sieves_courier/screens/orders/orders.screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,14 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Sieves Courier',
-      // Start the app with the "/" named route. In this case, the app starts
-      // on the FirstScreen widget.
       initialRoute: '/',
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => AuthenticateScreen(),
-        // When navigating to the "/second" route, build the SecondScreen widget.
-        '/second': (context) => HomeScreen(),
       },
     );
   }
