@@ -9,7 +9,7 @@
     },
     {
       "name": "args",
-      "rootUri": "file:///home/nurmuhammad/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/args-2.1.1",
+      "rootUri": "file:///home/nurmuhammad/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/args-2.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -75,7 +75,7 @@
     },
     {
       "name": "flutter_native_splash",
-      "rootUri": "file:///home/nurmuhammad/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_native_splash-1.2.0",
+      "rootUri": "file:///home/nurmuhammad/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_native_splash-1.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -194,7 +194,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-07-13T09:14:19.864733Z",
+  "generated": "2021-08-19T08:45:15.291086Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
