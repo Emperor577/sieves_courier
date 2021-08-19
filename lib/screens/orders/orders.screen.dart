@@ -18,7 +18,7 @@ class OrdersScreen extends StatelessWidget {
           ),
           SizedBox(height: 15),
           Card(
-            elevation: 3.5,
+            elevation: primaryCardElevation,
             child: Container(
               width: double.infinity,
               child: Column(

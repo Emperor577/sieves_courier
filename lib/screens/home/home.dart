@@ -29,25 +29,37 @@ class _HomeScreenState extends State<HomeScreen> {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
       body: _pages[_selectedIndex],
-      bottomNavigationBar: new BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart,),
-            label: 'Заказы',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.schedule_outlined,),
-            label: 'История',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person,),
-            label: 'Профиль',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: primaryBlueColor,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.25),
+              offset: Offset(0, -1),
+              blurRadius: 3,
+              spreadRadius: 0
+            ),
+          ]
+        ),
+        child: new BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart,),
+              label: 'Заказы',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.schedule_outlined,),
+              label: 'История',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person,),
+              label: 'Профиль',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: primaryBlueColor,
+          onTap: _onItemTapped,
+          type: BottomNavigationBarType.fixed,
+        ),
       )
     );
   }
