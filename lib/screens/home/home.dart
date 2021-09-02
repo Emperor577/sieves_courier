@@ -4,10 +4,12 @@ import 'package:sieves_courier/screens/history/history.screen.dart';
 import 'package:sieves_courier/screens/orders/orders.screen.dart';
 import 'package:flutter/services.dart';
 import 'package:sieves_courier/screens/profile/profile.screen.dart';
+import 'package:provider/provider.dart';
+import 'package:sieves_courier/providers/order.provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
+  static const routeName = '/home';
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -24,9 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
+    Provider.of<OrderProvider>(context).fetchOrders();
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: Container(

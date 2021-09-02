@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:sieves_courier/constants.dart';
+import '../../providers/auth.provider.dart';
+import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    final employee = Provider.of<Auth>(context).employee;
+    final photo = employee['individual']['photo'];
+    final networkImageUrl = photo == null ?
+      'https://st4.depositphotos.com/4329009/19956/v/380/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg'
+      : SPACE_URL + '/' + photo['thumbnail'] + '/' + photo['name'] + '.' + photo['format'];
     return SingleChildScrollView(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -19,72 +27,74 @@ class ProfileScreen extends StatelessWidget {
           Card(
             elevation: primaryCardElevation,
             child: Container(
-              width: double.infinity,
+              width: size.width,
               padding: const EdgeInsets.all(20.0),
               child: Row(
                 children: <Widget>[
                   CircleAvatar(
                     backgroundImage: NetworkImage(
-                        'https://st4.depositphotos.com/4329009/19956/v/380/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg',
+                      networkImageUrl,
                     ),
                     radius: 40.0,
                   ),
                   SizedBox(width: 30,),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'Cameron Williamson',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          employee['individual']['first_name'] + ' ' + employee['individual']['last_name'],
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 10,),
-                      Text(
-                        'Доставщик',
-                        style: TextStyle(
-                          color: primaryBlueColor,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14
+                        SizedBox(height: 10,),
+                        Text(
+                          'Доставщик',
+                          style: TextStyle(
+                            color: primaryBlueColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 10,),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            '4.0',
-                            style: TextStyle(
-                              color: primaryGreyColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700
+                        SizedBox(height: 10,),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              '4.0',
+                              style: TextStyle(
+                                color: primaryGreyColor,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 10,),
-                          Icon(
-                            Icons.star,
-                            color: primaryBlueColor,
-                          ),
-                          Icon(
-                            Icons.star,
-                            color: primaryBlueColor,
-                          ),
-                          Icon(
-                            Icons.star,
-                            color: primaryBlueColor,
-                          ),
-                          Icon(
-                            Icons.star,
-                            color: primaryBlueColor,
-                          ),
-                          Icon(
-                            Icons.star,
-                            color: primaryGreyColor,
-                          )
-                        ],
-                      )
-                    ],
+                            SizedBox(width: 10,),
+                            Icon(
+                              Icons.star,
+                              color: primaryBlueColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              color: primaryBlueColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              color: primaryBlueColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              color: primaryBlueColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              color: primaryGreyColor,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),

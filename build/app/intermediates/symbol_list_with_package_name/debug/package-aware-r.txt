@@ -1,5 +1,6 @@
 com.example.sieves_courier
 attr alpha
+attr coordinatorLayoutStyle
 attr font
 attr fontProviderAuthority
 attr fontProviderCerts
@@ -10,11 +11,25 @@ attr fontProviderQuery
 attr fontStyle
 attr fontVariationSettings
 attr fontWeight
+attr keylines
+attr layout_anchor
+attr layout_anchorGravity
+attr layout_behavior
+attr layout_dodgeInsetEdges
+attr layout_insetEdge
+attr layout_keyline
+attr statusBarBackground
 attr ttcIndex
+color browser_actions_bg_grey
+color browser_actions_divider_color
+color browser_actions_text_color
+color browser_actions_title_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color ripple_material_light
 color secondary_text_default_material_light
+dimen browser_actions_context_menu_max_width
+dimen browser_actions_context_menu_min_padding
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -88,23 +103,43 @@ id action_divider
 id action_image
 id action_text
 id actions
+id all
 id async
 id blocking
+id bottom
+id browser_actions_header_text
+id browser_actions_menu_item_icon
+id browser_actions_menu_item_text
+id browser_actions_menu_items
+id browser_actions_menu_view
+id center
+id center_horizontal
+id center_vertical
 id chronometer
+id clip_horizontal
+id clip_vertical
 id dialog_button
+id end
+id fill
+id fill_horizontal
+id fill_vertical
 id forever
 id icon
 id icon_group
 id info
 id italic
+id left
 id line1
 id line3
+id none
 id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id right
 id right_icon
 id right_side
+id start
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -117,7 +152,10 @@ id text
 id text2
 id time
 id title
+id top
 integer status_bar_notification_info_maxnum
+layout browser_actions_context_menu_page
+layout browser_actions_context_menu_row
 layout custom_dialog
 layout notification_action
 layout notification_action_tombstone
@@ -136,7 +174,10 @@ style TextAppearance_Compat_Notification_Time
 style TextAppearance_Compat_Notification_Title
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
+style Widget_Support_CoordinatorLayout
 styleable ColorStateListItem android_color android_alpha alpha
+styleable CoordinatorLayout keylines statusBarBackground
+styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_anchorGravity layout_behavior layout_dodgeInsetEdges layout_insetEdge layout_keyline
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
