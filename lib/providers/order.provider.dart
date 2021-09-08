@@ -1,14 +1,18 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
+import 'package:sieves_courier/models/branch.model.dart';
+import 'package:sieves_courier/models/order_item.model.dart';
 import '../models/http_exception.dart';
 import '../constants.dart';
 import 'package:sieves_courier/models/order.model.dart';
 
 class OrderProvider with ChangeNotifier {
-  List<Order> _orders;
+  List<Order> _orders = [];
   var _data;
+
   OrderProvider(this._data, this._orders);
 
   List<Order> get orders {
@@ -16,18 +20,61 @@ class OrderProvider with ChangeNotifier {
   }
 
   Future<void> fetchOrders() async {
-    if (_orders.isEmpty) {
-      final url = API_DOMAIN + '/order?orderType=delivery&delivery_employee_id=' + _data['employee']['id'] + '&day_session_id=' + _data['day_session_id'] + '&expand=deliveryEmployee.individual,branch,address,customer.contacts,orderItems.product.inventory,currentStatus,orderStatuses.orderTypeStatus,transactions.paymentType';
-      try {
-        final response = await http.get(Uri.parse(url), headers: {
-          HttpHeaders.authorizationHeader: 'Bearer ' + _data['token']
-        });
-        final responseOrders = json.decode(response.body);
-        _orders = responseOrders['models'];
-        notifyListeners();
-      } catch (error) {
-        throw error;
-      }
+    final url = API_DOMAIN +
+        '/order?orderType=delivery&delivery_employee_id=' +
+        _data['employee']['id'] +
+        '&day_session_id=' +
+        _data['day_session_id'] +
+        '&expand=deliveryEmployee.individual,branch,address,customer.contacts,orderItems.product.inventory,currentStatus,orderStatuses.orderTypeStatus,transactions.paymentType';
+    try {
+      final response = await http.get(Uri.parse(url), headers: {
+        HttpHeaders.authorizationHeader: 'Bearer ' + _data['token']
+      });
+      final responseOrders = json.decode(response.body)['models'];
+      _orders = [];
+      responseOrders.forEach((order) {
+        _orders.add(Order(
+            id: order['id'] as int,
+            branch_id: order['branch_id'] as int,
+            day_session_id: order['day_session_id'] as int,
+            pos_id: order['pos_id'] as int,
+            pos_session_id: order['pos_session_id'] as int,
+            order_type_id: order['order_type_id'] as int,
+            customer_id: order['customer_id'] as int,
+            address_id: order['address_id'] as int,
+            value: double.parse(order['value'].toString()),
+            paid: double.parse(order['paid'].toString()),
+            delivery_employee_id: order['delivery_employee_id'] as int,
+            current_status_id: order['current_status_id'] as int,
+            deliveryEmployee: order['deliveryEmployee'] as Map<String, dynamic>,
+            change: double.parse(order['change'].toString()),
+            note: order['note'] == null ? null : order['note'] as String,
+            start_time: order['start_time'] as String,
+            deadline: order['deadline'] as String,
+            delivery_time: order['delivery_time'] as String,
+            document_number: order['document_number'] as String,
+            receipt_number: order['receipt_number'] as String,
+            pager_number: order['pager_number'] as String,
+            break_employee_id: order['break_employee_id'] == null ? null : order['break_employee_id'] as int,
+            break_photo_id: order['break_photo_id'] == null ? null : order['break_photo_id'] as int,
+            customer: order['customer'] as Map<String, dynamic>,
+            orderItems: order['orderItems'] as List<dynamic>,
+            transactions: order['transactions'] as List<dynamic>,
+            currentStatus: order['currentStatus'] as Map<String, dynamic>,
+            branch: order['branch'] as Map<String, dynamic>,
+            orderStatuses: order['orderStatuses'] as List<dynamic>,
+            created_hour: order['created_hour'] == null ? null : order['created_hour'] as String,
+            employee_id: order['employee_id'] as int,
+            order_type_group_id: order['order_type_group_id'] as int,
+            customer_quantity: order['customer_quantity'] as int,
+            created_at: order['created_at'] as String,
+            address: order['address'] as Map<String, dynamic>,
+            counter: order['counter'] as Map<String, dynamic>
+        ));
+      });
+      notifyListeners();
+    } catch (error) {
+      throw error;
     }
   }
 }

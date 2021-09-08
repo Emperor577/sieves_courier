@@ -136,7 +136,7 @@ class _AuthCardState extends State<AuthCard> {
           _usernameController.text,
           _passwordController.text
       );
-      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+      // Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
     } on HttpException catch(error) {
       var errorMessage = error.toString();
       _showErrorDialog(errorMessage);

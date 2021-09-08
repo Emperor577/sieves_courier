@@ -9,16 +9,16 @@ class Order {
   final int? break_employee_id;
   final int? break_photo_id;
   final int? delivery_employee_id;
-  final int? pos_id;
-  final int? pos_session_id;
-  final int? order_type_id;
+  final int pos_id;
+  final int pos_session_id;
+  final int order_type_id;
   final int? order_type_group_id;
   final int? current_status_id;
   final int? customer_id;
   final int? address_id;
-  final int? value;
-  final int? paid;
-  final int? change;
+  final double? value;
+  final double? paid;
+  final double? change;
   final String? note;
   final String? start_time;
   final String? deadline;
@@ -28,53 +28,53 @@ class Order {
   final String? pager_number;
   final int? customer_quantity;
   final String? created_hour;
-  final String? created_at;
+  final String created_at;
   final Map<String, dynamic> counter;
   final List<dynamic> transactions;
-  final Branch branch;
-  final List<OrderItem> orderItems;
+  final Map<String, dynamic> branch;
+  final List<dynamic> orderItems;
   final List<dynamic> orderStatuses;
   final Map<String, dynamic> currentStatus;
   final Map<String, dynamic> customer;
   final Map<String, dynamic> deliveryEmployee;
   final Map<String, dynamic> address;
 
-  Order(
-      this.id,
-      this.branch_id,
-      this.day_session_id,
-      this.pos_id,
-      this.pos_session_id,
-      this.order_type_id,
-      this.customer_id,
-      this.address_id,
-      this.value,
-      this.paid,
-      this.delivery_employee_id,
-      this.current_status_id,
-      this.deliveryEmployee,
-      this.change,
-      this.note,
-      this.start_time,
-      this.deadline,
-      this.delivery_time,
-      this.document_number,
-      this.receipt_number,
-      this.pager_number,
-      this.break_employee_id,
-      this.break_photo_id,
-      this.customer,
-      this.orderItems,
-      this.transactions,
-      this.currentStatus,
-      this.branch,
-      this.orderStatuses,
-      this.created_hour,
-      this.employee_id,
-      this.order_type_group_id,
-      this.customer_quantity,
-      this.created_at,
-      this.address,
-      this.counter
-  );
+  Order({
+    required this.id,
+    required this.branch_id,
+    required this.day_session_id,
+    required this.pos_id,
+    required this.pos_session_id,
+    required this.order_type_id,
+    this.customer_id,
+    this.address_id,
+    this.value,
+    this.paid,
+    this.delivery_employee_id,
+    this.current_status_id,
+    required this.deliveryEmployee,
+    this.change,
+    this.note,
+    this.start_time,
+    this.deadline,
+    this.delivery_time,
+    this.document_number,
+    this.receipt_number,
+    this.pager_number,
+    this.break_employee_id,
+    this.break_photo_id,
+    required this.customer,
+    required this.orderItems,
+    required this.transactions,
+    required this.currentStatus,
+    required this.branch,
+    required this.orderStatuses,
+    this.created_hour,
+    required this.employee_id,
+    this.order_type_group_id,
+    this.customer_quantity,
+    required this.created_at,
+    required this.address,
+    required this.counter,
+  });
 }
