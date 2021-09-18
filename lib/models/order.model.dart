@@ -22,7 +22,7 @@ class Order {
   final String? note;
   final String? start_time;
   final String? deadline;
-  final String? delivery_time;
+  String? delivery_time;
   final String? document_number;
   final String? receipt_number;
   final String? pager_number;
@@ -77,4 +77,45 @@ class Order {
     required this.address,
     required this.counter,
   });
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": this.id,
+      "branch_id": this.branch_id,
+      "day_session_id": this.day_session_id,
+      "pos_id": this.pos_id,
+      "pos_session_id": this.pos_session_id,
+      "order_type_id": order_type_id,
+      "customer_id": this.customer_id,
+      "address_id": this.address_id,
+      "value": this.value,
+      "paid": this.paid,
+      "delivery_employee_id": this.delivery_employee_id,
+      "current_status_id": this.current_status_id,
+      "deliveryEmployee": this.deliveryEmployee,
+      "change": this.change,
+      "note": this.note,
+      "start_time": this.start_time,
+      "deadline": this.deadline,
+      "delivery_time": this.delivery_time,
+      "document_number": this.document_number,
+      "receipt_number": this.receipt_number,
+      "pager_number": this.pager_number,
+      "break_employee_id": this.break_employee_id,
+      "break_photo_id": this.break_photo_id,
+      "customer": this.customer,
+      "orderItems": this.orderItems,
+      "transactions": this.transactions,
+      "currentStatus": this.currentStatus,
+      "branch": this.branch,
+      "orderStatuses": this.orderStatuses,
+      "created_hour": this.created_hour,
+      "employee_id": this.employee_id,
+      "order_type_group_id": this.order_type_group_id,
+      "customer_quantity": this.customer_quantity,
+      "created_at": this.created_at,
+      "address": this.address,
+      "counter": this.counter
+    };
+  }
 }

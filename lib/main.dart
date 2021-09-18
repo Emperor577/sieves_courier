@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sieves_courier/providers/auth.provider.dart';
 import 'package:sieves_courier/providers/order.provider.dart';
 import 'package:sieves_courier/screens/auth/auth.screen.dart';
+import 'package:sieves_courier/screens/auth/auth_webview.screen.dart';
 import 'package:sieves_courier/screens/history/history.screen.dart';
 import 'package:sieves_courier/screens/home/home.dart';
 import 'package:sieves_courier/screens/orders/orders.screen.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<Auth>(
         builder: (ctx, auth, _) => MaterialApp(
           title: 'Sieves Courier',
-          home: auth.isAuth ? HomeScreen() : AuthenticateScreen(),
+          home: auth.isAuth ? HomeScreen() : AuthWebViewScreen(),
           routes: {
             HomeScreen.routeName: (ctx) => HomeScreen(),
             OrdersScreen.routeName: (ctx) => OrdersScreen()

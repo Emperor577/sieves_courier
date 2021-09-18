@@ -11,12 +11,22 @@ import 'package:sieves_courier/models/order.model.dart';
 
 class OrderProvider with ChangeNotifier {
   List<Order> _orders = [];
+  List<Order> _activeOrders = [];
+  List<Order> _deliveredOrders = [];
   var _data;
 
   OrderProvider(this._data, this._orders);
 
   List<Order> get orders {
     return [..._orders];
+  }
+
+  List<Order> get activeOrders {
+    return [..._activeOrders];
+  }
+
+  List<Order> get deliveredOrders {
+    return [..._deliveredOrders];
   }
 
   Future<void> fetchOrders() async {
@@ -72,7 +82,46 @@ class OrderProvider with ChangeNotifier {
             counter: order['counter'] as Map<String, dynamic>
         ));
       });
+      _activeOrders = [];
+      _deliveredOrders = [];
+      _orders.forEach((order) {
+        if (order.currentStatus['type'] == 'finish') {
+          _activeOrders.add(order);
+        }
+        if (order.currentStatus['type'] == 'delivered') {
+          _deliveredOrders.add(order);
+        }
+      });
       notifyListeners();
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  bool checkTimeout(String from) {
+    final DateTime createdAt = DateTime.parse(from).add(new Duration(hours: 5));
+    final Duration _time = DateTime.now().difference(createdAt);
+    if (_time.inHours == 0) {
+      if (_time.inMinutes >= 50) {
+        return false;
+      }
+      return true;
+    }
+    return false;
+  }
+
+  Future<void> closeOrder(Order order) async {
+    final url = API_DOMAIN + '/order/' + order.id.toString() + '?updateStatus=1';
+    order.delivery_time = DateTime.now().toString();
+    try {
+      print(_data['token']);
+      final response = await http.put(Uri.parse(url), headers: {
+          HttpHeaders.authorizationHeader: 'Bearer ' + _data['token'],
+          HttpHeaders.contentTypeHeader: 'application/json'
+        },
+        body: json.encode(order.toJson())
+      );
+      fetchOrders();
     } catch (error) {
       throw error;
     }

@@ -37,7 +37,7 @@ class OrderList extends StatefulWidget {
 class _OrderListState extends State<OrderList> {
   @override
   Widget build(BuildContext context) {
-    final List<Order> orders = Provider.of<OrderProvider>(context).orders;
+    final List<Order> activeOrders = Provider.of<OrderProvider>(context).activeOrders;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -60,13 +60,13 @@ class _OrderListState extends State<OrderList> {
         ),
         SizedBox(height: 15),
         Expanded(
-          child: orders.length == 0 ?
+          child: activeOrders.length == 0 ?
           Center(
-            child: Text('empty'),
+            child: CircularProgressIndicator(),
           ) :
           ListView.builder(
-            itemCount: orders.length,
-            itemBuilder: (context, i) => OrderCard(order: orders[i]),
+            itemCount: activeOrders.length,
+            itemBuilder: (context, i) => OrderCard(order: activeOrders[i]),
           ),
         )
       ],

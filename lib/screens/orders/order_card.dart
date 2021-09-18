@@ -42,7 +42,7 @@ class _OrderCardState extends State<OrderCard> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => OrderDetailScreen(title: 'order 1')),
+                      MaterialPageRoute(builder: (context) => OrderDetailScreen(order: order)),
                     );
                   },
                   child: Row(
