@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -35,6 +37,29 @@ class OrderList extends StatefulWidget {
 }
 
 class _OrderListState extends State<OrderList> {
+  Timer _timer = Timer.periodic(new Duration(seconds: 1), (timer) {});
+  int _indicatorCounter = 0;
+
+  @override
+  void initState() {
+    if (_indicatorCounter <= 3) {
+      _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+        setState(() {
+          _indicatorCounter++;
+        });
+      });
+    } else {
+      _timer.cancel();
+    }
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Order> activeOrders = Provider.of<OrderProvider>(context).activeOrders;
@@ -52,6 +77,7 @@ class _OrderListState extends State<OrderList> {
               onPressed: () {
                 setState(() {
                   Provider.of<OrderProvider>(context, listen: false).fetchOrders();
+                  _indicatorCounter = 0;
                 });
               },
               icon: Icon(Icons.refresh),
@@ -61,13 +87,13 @@ class _OrderListState extends State<OrderList> {
         SizedBox(height: 15),
         Expanded(
           child: activeOrders.length == 0 ?
-          Center(
-            child: CircularProgressIndicator(),
-          ) :
-          ListView.builder(
-            itemCount: activeOrders.length,
-            itemBuilder: (context, i) => OrderCard(order: activeOrders[i]),
-          ),
+            Center(
+              child: _indicatorCounter <= 3 ? CircularProgressIndicator() : Text('Список пуст'),
+            ) :
+            ListView.builder(
+              itemCount: activeOrders.length,
+              itemBuilder: (context, i) => OrderCard(order: activeOrders[i]),
+            ),
         )
       ],
     );

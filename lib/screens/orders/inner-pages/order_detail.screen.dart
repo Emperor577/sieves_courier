@@ -297,28 +297,6 @@ class OrderDetailScreen extends StatelessWidget {
                               Text(order.value!.toInt().toString())
                             ],
                           ),
-                          Divider(
-                            thickness: 1,
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                  'Цена доставки: ',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600
-                                ),
-                              ),
-                              Expanded(child: Divider()),
-                              Text(
-                                  ' 12.000',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600
-                                ),
-                              )
-                            ],
-                          )
                         ],
                       ),
                     )

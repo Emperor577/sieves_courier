@@ -118,6 +118,41 @@
 77-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:39:13-44
 78            android:value="2" />
 78-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:40:13-30
-79    </application>
-80
-81</manifest>
+79
+80        <activity
+80-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:27:9-31:75
+81            android:name="net.openid.appauth.AuthorizationManagementActivity"
+81-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:28:13-78
+82            android:exported="false"
+82-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:29:13-37
+83            android:launchMode="singleTask"
+83-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:30:13-44
+84            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+84-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:31:13-72
+85        <activity
+85-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:32:9-43:20
+86            android:name="net.openid.appauth.RedirectUriReceiverActivity"
+86-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:33:13-74
+87            android:exported="true" >
+87-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:34:13-36
+88            <intent-filter>
+88-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:35:13-42:29
+89                <action android:name="android.intent.action.VIEW" />
+89-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:44:13-65
+89-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:44:21-62
+90
+91                <category android:name="android.intent.category.DEFAULT" />
+91-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:38:17-76
+91-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:38:27-73
+92                <category android:name="android.intent.category.BROWSABLE" />
+92-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:45:13-74
+92-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:45:23-71
+93
+94                <data android:scheme="com.example.sievescourier" />
+94-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:46:13-44
+94-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:46:19-41
+95            </intent-filter>
+96        </activity>
+97    </application>
+98
+99</manifest>

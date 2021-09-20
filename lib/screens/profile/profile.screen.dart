@@ -216,25 +216,30 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8,),
-          Card(
-            elevation: primaryCardElevation,
-            child: Container(
-              padding: const EdgeInsets.all(20.0),
-              child: new Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.power_settings_new,
-                    color: primaryGreyColor,
-                  ),
-                  SizedBox(width: 30,),
-                  Text(
-                    'Выйти',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400
+          GestureDetector(
+            onTap: () {
+              Provider.of<Auth>(context, listen: false).logoutAction();
+            },
+            child: Card(
+              elevation: primaryCardElevation,
+              child: Container(
+                padding: const EdgeInsets.all(20.0),
+                child: new Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.power_settings_new,
+                      color: primaryGreyColor,
                     ),
-                  )
-                ],
+                    SizedBox(width: 30,),
+                    Text(
+                      'Выйти',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

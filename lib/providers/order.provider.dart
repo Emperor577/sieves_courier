@@ -13,7 +13,7 @@ class OrderProvider with ChangeNotifier {
   List<Order> _orders = [];
   List<Order> _activeOrders = [];
   List<Order> _deliveredOrders = [];
-  var _data;
+  Map<String, dynamic> _data;
 
   OrderProvider(this._data, this._orders);
 
@@ -32,9 +32,9 @@ class OrderProvider with ChangeNotifier {
   Future<void> fetchOrders() async {
     final url = API_DOMAIN +
         '/order?orderType=delivery&delivery_employee_id=' +
-        _data['employee']['id'] +
+        _data['employee']['id'].toString() +
         '&day_session_id=' +
-        _data['day_session_id'] +
+        _data['day_session_id'].toString() +
         '&expand=deliveryEmployee.individual,branch,address,customer.contacts,orderItems.product.inventory,currentStatus,orderStatuses.orderTypeStatus,transactions.paymentType';
     try {
       final response = await http.get(Uri.parse(url), headers: {
