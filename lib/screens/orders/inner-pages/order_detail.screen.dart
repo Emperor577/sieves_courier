@@ -11,6 +11,7 @@ import 'package:sieves_courier/providers/order.provider.dart';
 import 'package:sieves_courier/screens/orders/inner-pages/order_item.dart';
 import 'package:sieves_courier/widgets/time_difference.widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:map_launcher/map_launcher.dart' as mapLauncher;
 
 class OrderDetailScreen extends StatelessWidget {
   const OrderDetailScreen({required this.order});
@@ -24,6 +25,43 @@ class OrderDetailScreen extends StatelessWidget {
     } else {
       final address_2 = address['address_2'].toString().split(',');
       return address_2[0] + ', ' + address_2[1] + ', ' + address_2[2];
+    }
+  }
+
+  openMapsSheet(context) async {
+    try {
+      final coords = mapLauncher.Coords(double.parse(order.address['lat']), double.parse(order.address['lng']));
+      final title = "Ocean Beach";
+      final availableMaps = await mapLauncher.MapLauncher.installedMaps;
+
+      print(availableMaps);
+
+      showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return SafeArea(
+            child: SingleChildScrollView(
+              child: Container(
+                child: Wrap(
+                  children: <Widget>[
+                    for (var map in availableMaps)
+                      ListTile(
+                        onTap: () => map.showMarker(
+                          coords: coords,
+                          title: title,
+                        ),
+                        title: Text(map.mapName),
+                        leading: Icon(Icons.location_on),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      );
+    } catch (e) {
+      print(e);
     }
   }
   
@@ -90,6 +128,18 @@ class OrderDetailScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              if(address['lat'] != null)
+                Positioned(
+                  bottom: 10,
+                  right: 10,
+                  child: ElevatedButton.icon(
+                      onPressed: () {
+                        openMapsSheet(context);
+                      },
+                      icon: Icon(Icons.open_in_new_outlined),
+                      label: Text('Открыть с ...'),
+                  ),
+                ),
               Positioned(
                 top: 10,
                 left: 10,

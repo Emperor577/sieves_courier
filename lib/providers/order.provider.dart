@@ -112,7 +112,7 @@ class OrderProvider with ChangeNotifier {
 
   Future<void> closeOrder(Order order) async {
     final url = API_DOMAIN + '/order/' + order.id.toString() + '?updateStatus=1';
-    order.delivery_time = DateTime.now().toString();
+    order.delivery_time = DateTime.now().subtract(Duration(hours: 5)).toString().substring(0, 19);
     try {
       print(_data['token']);
       final response = await http.put(Uri.parse(url), headers: {

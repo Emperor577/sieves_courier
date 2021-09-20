@@ -38,45 +38,6 @@ class _AuthByAuth0ScreenState extends State<AuthByAuth0Screen> {
   String? errorMessage;
 
   @override
-  void initState() {
-    initAction();
-    super.initState();
-  }
-
-  void initAction() async {
-    final storedRefreshToken = await secureStorage.read(key: 'refresh_token');
-    print('storedRefreshToken');
-    print(storedRefreshToken);
-    if (storedRefreshToken == null) return;
-
-    setState(() {
-      isBusy = true;
-    });
-
-    try {
-      final response = await appAuth.token(TokenRequest(
-        AUTH0_CLIENT_ID,
-        AUTH0_REDIRECT_URI,
-        issuer: AUTH0_ISSUER,
-        refreshToken: storedRefreshToken,
-      ));
-
-      final idToken = parseIdToken(response!.idToken.toString());
-      secureStorage.write(key: 'refresh_token', value: response.refreshToken);
-      Provider.of<Auth>(context, listen: false).setToken(response.accessToken.toString());
-      Provider.of<Auth>(context, listen: false).setAuthData(idToken);
-
-      setState(() {
-        isBusy = false;
-        isLoggedIn = true;
-      });
-    } catch (e, s) {
-      print('error on refresh token: $e - stack: $s');
-      logoutAction();
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Authenticate by Auth0',
@@ -129,13 +90,9 @@ class _AuthByAuth0ScreenState extends State<AuthByAuth0Screen> {
 
       final idToken = parseIdToken(result!.idToken.toString());
       await secureStorage.write(key: 'refresh_token', value: result.refreshToken);
-      Provider.of<Auth>(context, listen: false).setToken(result.accessToken.toString());
+      await Provider.of<Auth>(context, listen: false).setToken(result.accessToken.toString());
       Provider.of<Auth>(context, listen: false).setAuthData(idToken);
-
-      setState(() {
-        isBusy = false;
-        isLoggedIn = true;
-      });
+      
     } catch (e, s) {
       print('login error: $e - stack: $s');
 
@@ -145,13 +102,5 @@ class _AuthByAuth0ScreenState extends State<AuthByAuth0Screen> {
         errorMessage = e.toString();
       });
     }
-  }
-
-  void logoutAction() async {
-    await secureStorage.delete(key: 'refresh_token');
-    setState(() {
-      isLoggedIn = false;
-      isBusy = false;
-    });
   }
 }

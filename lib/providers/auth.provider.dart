@@ -23,12 +23,13 @@ class Auth with ChangeNotifier {
     return _token;
   }
 
-  void setToken(String accessToken) {
+  Future<void> setToken(String accessToken) async{
     _token = accessToken;
-    fetchDaySession();
+    await fetchDaySession();
+    return Future.value();
   }
 
-  void fetchDaySession() async {
+  Future<void> fetchDaySession() async {
     final url = API_DOMAIN + '/day-session/0?specialType=current';
     try {
       final http.Response response = await http.get(
@@ -40,6 +41,7 @@ class Auth with ChangeNotifier {
 
       final decodedResponse = json.decode(response.body);
       daySessionId = decodedResponse['id'];
+      return Future.value();
     } catch (error) {
       throw error;
     }

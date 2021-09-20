@@ -4,8 +4,6 @@ import 'package:sieves_courier/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:sieves_courier/models/order.model.dart';
 import 'package:sieves_courier/providers/order.provider.dart';
-import 'package:sieves_courier/screens/orders/order_card.dart';
-
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({ Key? key }) : super(key: key);
@@ -25,6 +23,16 @@ List<Map<String, dynamic>> generateItems(List<Order> orders) {
 }
 
 class _HistoryScreenState extends State<HistoryScreen> {
+
+  bool checkDifference(String startTime, String endTime, int checkPointMinute) {
+    DateTime createdAt = DateTime.parse(startTime).add(Duration(hours: 5));
+    DateTime deliveredTime = DateTime.parse(endTime);
+    Duration difference = deliveredTime.difference(createdAt);
+    if (difference.inHours > 0) {
+      return false;
+    }
+    return difference.inMinutes < checkPointMinute;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,14 +110,20 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                     top: 3
                                 ),
                                 decoration: BoxDecoration(
-                                    color: Provider.of<OrderProvider>(context).
-                                    checkTimeout(_historyItems[index]['order'].created_at) ?
+                                    color: checkDifference(
+                                        _historyItems[index]['order'].created_at,
+                                        _historyItems[index]['order'].delivery_time,
+                                        50
+                                    ) ?
                                     Color(0xFF31C971) : primaryRedColor,
                                     borderRadius: BorderRadius.circular(5)
                                 ),
                                 child: Text(
-                                  Provider.of<OrderProvider>(context).
-                                  checkTimeout(_historyItems[index]['order'].created_at) ? 'вовремя' : 'поздно',
+                                  checkDifference(
+                                      _historyItems[index]['order'].created_at,
+                                      _historyItems[index]['order'].delivery_time,
+                                      50
+                                  ) ? 'вовремя' : 'поздно',
                                   style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
@@ -132,7 +146,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                 child: Row(
                                   children: <Widget>[
                                     CircleAvatar(
-                                      backgroundImage: NetworkImage('https://toppng.com/uploads/preview/kfc-is-the-popular-fried-chicken-savouring-joint-that-kfc-logo-11563906943d5egjqipew.png'),
+                                      backgroundImage: AssetImage('assets/images/loook.jpeg'),
                                       radius: 30.0,
                                     ),
                                     SizedBox(width: 30,),

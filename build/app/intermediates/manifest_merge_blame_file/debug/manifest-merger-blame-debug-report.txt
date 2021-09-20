@@ -45,114 +45,157 @@
 29-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:46:13-44
 29-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:46:19-41
 30        </intent>
-31    </queries>
-32
-33    <application
-33-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:4:4-41:19
-34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-34-->[androidx.core:core:1.1.0] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/2e94107f30f39be366a17347c2bf100b/core-1.1.0/AndroidManifest.xml:24:18-86
-35        android:debuggable="true"
-36        android:icon="@mipmap/ic_launcher"
-36-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:6:9-43
-37        android:label="sieves_courier" >
-37-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:5:9-39
-38        <activity
-38-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:7:9-35:20
-39            android:name="com.example.sieves_courier.MainActivity"
-39-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:8:13-41
-40            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-40-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:11:13-163
-41            android:hardwareAccelerated="true"
-41-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:12:13-47
-42            android:launchMode="singleTop"
-42-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:9:13-43
-43            android:theme="@style/LaunchTheme"
-43-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:10:13-47
-44            android:windowSoftInputMode="adjustResize" >
-44-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:13:13-55
-45
-46            <!--
-47                 Specifies an Android theme to apply to this Activity as soon as
-48                 the Android process has started. This theme is visible to the user
-49                 while the Flutter UI initializes. After that, this theme continues
-50                 to determine the Window background behind the Flutter UI.
-51            -->
-52            <meta-data
-52-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:18:13-21:17
-53                android:name="io.flutter.embedding.android.NormalTheme"
-53-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:19:15-70
-54                android:resource="@style/NormalTheme" />
-54-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:20:15-52
-55            <!--
-56                 Displays an Android View that continues showing the launch screen
-57                 Drawable until Flutter paints its first frame, then this splash
-58                 screen fades out. A splash screen is useful to avoid any visual
-59                 gap between the end of Android's launch screen and the painting of
-60                 Flutter's first frame.
-61            -->
-62            <meta-data
-62-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:27:13-30:17
-63                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-63-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:28:15-79
-64                android:resource="@drawable/launch_background" />
-64-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:29:15-61
-65
-66            <intent-filter>
-66-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:31:13-34:29
-67                <action android:name="android.intent.action.MAIN" />
-67-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:32:17-68
-67-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:32:25-66
-68
-69                <category android:name="android.intent.category.LAUNCHER" />
-69-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:33:17-76
-69-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:33:27-74
-70            </intent-filter>
-71        </activity>
-72        <!--
-73             Don't delete the meta-data below.
-74             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-75        -->
-76        <meta-data
-76-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:38:9-40:33
-77            android:name="flutterEmbedding"
-77-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:39:13-44
-78            android:value="2" />
-78-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:40:13-30
-79
-80        <activity
-80-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:27:9-31:75
-81            android:name="net.openid.appauth.AuthorizationManagementActivity"
-81-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:28:13-78
-82            android:exported="false"
-82-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:29:13-37
-83            android:launchMode="singleTask"
-83-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:30:13-44
-84            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-84-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:31:13-72
-85        <activity
-85-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:32:9-43:20
-86            android:name="net.openid.appauth.RedirectUriReceiverActivity"
-86-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:33:13-74
-87            android:exported="true" >
-87-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:34:13-36
-88            <intent-filter>
-88-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:35:13-42:29
-89                <action android:name="android.intent.action.VIEW" />
-89-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:44:13-65
-89-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:44:21-62
-90
-91                <category android:name="android.intent.category.DEFAULT" />
-91-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:38:17-76
-91-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:38:27-73
-92                <category android:name="android.intent.category.BROWSABLE" />
-92-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:45:13-74
-92-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:45:23-71
-93
-94                <data android:scheme="com.example.sievescourier" />
-94-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:46:13-44
-94-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:46:19-41
-95            </intent-filter>
-96        </activity>
-97    </application>
-98
-99</manifest>
+31
+32        <package android:name="com.google.android.apps.maps" />
+32-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
+32-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+33        <package android:name="com.google.android.apps.mapslite" />
+33-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:9-68
+33-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:18-65
+34        <package android:name="com.autonavi.minimap" />
+34-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:9-56
+34-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:18-53
+35        <package android:name="com.baidu.BaiduMap" />
+35-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:9-54
+35-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:18-51
+36        <package android:name="com.waze" />
+36-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-44
+36-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:12:18-41
+37        <package android:name="ru.yandex.yandexnavi" />
+37-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:13:9-56
+37-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:13:18-53
+38        <package android:name="ru.yandex.yandexmaps" />
+38-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:14:9-56
+38-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:14:18-53
+39        <package android:name="com.citymapper.app.release" />
+39-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:15:9-62
+39-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:15:18-59
+40        <package android:name="com.mapswithme.maps.pro" />
+40-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:16:9-59
+40-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:16:18-56
+41        <package android:name="net.osmand" />
+41-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-46
+41-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:17:18-43
+42        <package android:name="net.osmand.plus" />
+42-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:18:9-51
+42-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:18:18-48
+43        <package android:name="ru.dublgis.dgismobile" />
+43-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:19:9-57
+43-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:19:18-54
+44        <package android:name="com.tencent.map" />
+44-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:20:9-51
+44-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:20:18-48
+45        <package android:name="com.here.app.maps" />
+45-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:21:9-53
+45-->[:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:21:18-50
+46    </queries>
+47
+48    <application
+48-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:4:4-41:19
+49        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+49-->[androidx.core:core:1.1.0] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/2e94107f30f39be366a17347c2bf100b/core-1.1.0/AndroidManifest.xml:24:18-86
+50        android:debuggable="true"
+51        android:icon="@mipmap/ic_launcher"
+51-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:6:9-43
+52        android:label="sieves_courier" >
+52-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:5:9-39
+53        <activity
+53-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:7:9-35:20
+54            android:name="com.example.sieves_courier.MainActivity"
+54-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:8:13-41
+55            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+55-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:11:13-163
+56            android:hardwareAccelerated="true"
+56-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:12:13-47
+57            android:launchMode="singleTop"
+57-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:9:13-43
+58            android:theme="@style/LaunchTheme"
+58-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:10:13-47
+59            android:windowSoftInputMode="adjustResize" >
+59-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:13:13-55
+60
+61            <!--
+62                 Specifies an Android theme to apply to this Activity as soon as
+63                 the Android process has started. This theme is visible to the user
+64                 while the Flutter UI initializes. After that, this theme continues
+65                 to determine the Window background behind the Flutter UI.
+66            -->
+67            <meta-data
+67-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:18:13-21:17
+68                android:name="io.flutter.embedding.android.NormalTheme"
+68-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:19:15-70
+69                android:resource="@style/NormalTheme" />
+69-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:20:15-52
+70            <!--
+71                 Displays an Android View that continues showing the launch screen
+72                 Drawable until Flutter paints its first frame, then this splash
+73                 screen fades out. A splash screen is useful to avoid any visual
+74                 gap between the end of Android's launch screen and the painting of
+75                 Flutter's first frame.
+76            -->
+77            <meta-data
+77-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:27:13-30:17
+78                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+78-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:28:15-79
+79                android:resource="@drawable/launch_background" />
+79-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:29:15-61
+80
+81            <intent-filter>
+81-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:31:13-34:29
+82                <action android:name="android.intent.action.MAIN" />
+82-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:32:17-68
+82-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:32:25-66
+83
+84                <category android:name="android.intent.category.LAUNCHER" />
+84-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:33:17-76
+84-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:33:27-74
+85            </intent-filter>
+86        </activity>
+87        <!--
+88             Don't delete the meta-data below.
+89             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+90        -->
+91        <meta-data
+91-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:38:9-40:33
+92            android:name="flutterEmbedding"
+92-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:39:13-44
+93            android:value="2" />
+93-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:40:13-30
+94
+95        <activity
+95-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:27:9-31:75
+96            android:name="net.openid.appauth.AuthorizationManagementActivity"
+96-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:28:13-78
+97            android:exported="false"
+97-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:29:13-37
+98            android:launchMode="singleTask"
+98-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:30:13-44
+99            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+99-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:31:13-72
+100        <activity
+100-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:32:9-43:20
+101            android:name="net.openid.appauth.RedirectUriReceiverActivity"
+101-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:33:13-74
+102            android:exported="true" >
+102-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:34:13-36
+103            <intent-filter>
+103-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:35:13-42:29
+104                <action android:name="android.intent.action.VIEW" />
+104-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:44:13-65
+104-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:44:21-62
+105
+106                <category android:name="android.intent.category.DEFAULT" />
+106-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:38:17-76
+106-->[net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:38:27-73
+107                <category android:name="android.intent.category.BROWSABLE" />
+107-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:45:13-74
+107-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:45:23-71
+108
+109                <data android:scheme="com.example.sievescourier" />
+109-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:46:13-44
+109-->/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:46:19-41
+110            </intent-filter>
+111        </activity>
+112    </application>
+113
+114</manifest>

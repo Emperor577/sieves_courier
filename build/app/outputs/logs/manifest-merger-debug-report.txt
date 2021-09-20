@@ -6,6 +6,7 @@ INJECTED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_co
 INJECTED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:1:1-54:12
 MERGED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:1:1-54:12
 MERGED from [:flutter_appauth] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/flutter_appauth/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-24:12
 MERGED from [:webview_flutter] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/webview_flutter/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_secure_storage] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/flutter_secure_storage/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:15:1-46:12
@@ -119,6 +120,8 @@ ADDED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_couri
 		ADDED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:39:13-44
 queries
 ADDED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:42:5-53:15
+MERGED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-22:15
+MERGED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-22:15
 intent#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+data:scheme:https
 ADDED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml:43:9-47:18
 action#android.intent.action.VIEW
@@ -145,6 +148,8 @@ INJECTED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_co
 INJECTED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml
 MERGED from [:flutter_appauth] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/flutter_appauth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_appauth] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/flutter_appauth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:webview_flutter] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/webview_flutter/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:webview_flutter] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/webview_flutter/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_secure_storage] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/flutter_secure_storage/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
@@ -213,6 +218,62 @@ INJECTED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_co
 	android:minSdkVersion
 		INJECTED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/main/AndroidManifest.xml
 		INJECTED from /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/android/app/src/debug/AndroidManifest.xml
+package#com.google.android.apps.maps
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+package#com.google.android.apps.mapslite
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:9-68
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:18-65
+package#com.autonavi.minimap
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:9-56
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:18-53
+package#com.baidu.BaiduMap
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:9-54
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:18-51
+package#com.waze
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-44
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:12:18-41
+package#ru.yandex.yandexnavi
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:13:9-56
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:13:18-53
+package#ru.yandex.yandexmaps
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:14:9-56
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:14:18-53
+package#com.citymapper.app.release
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:15:9-62
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:15:18-59
+package#com.mapswithme.maps.pro
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:16:9-59
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:16:18-56
+package#net.osmand
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-46
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:17:18-43
+package#net.osmand.plus
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:18:9-51
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:18:18-48
+package#ru.dublgis.dgismobile
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:19:9-57
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:19:18-54
+package#com.tencent.map
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:20:9-51
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:20:18-48
+package#com.here.app.maps
+ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:21:9-53
+	android:name
+		ADDED from [:map_launcher] /run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:21:18-50
 activity#net.openid.appauth.AuthorizationManagementActivity
 ADDED from [net.openid:appauth:0.7.1] /home/nurmuhammad/.gradle/caches/transforms-2/files-2.1/cddc28fc51ed8e8c82e8841e3dce5381/jetified-appauth-0.7.1/AndroidManifest.xml:27:9-31:75
 	android:launchMode

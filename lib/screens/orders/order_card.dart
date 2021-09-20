@@ -48,7 +48,7 @@ class _OrderCardState extends State<OrderCard> {
                   child: Row(
                     children: <Widget>[
                       CircleAvatar(
-                        backgroundImage: NetworkImage('https://toppng.com/uploads/preview/kfc-is-the-popular-fried-chicken-savouring-joint-that-kfc-logo-11563906943d5egjqipew.png'),
+                        backgroundImage: AssetImage('assets/images/loook.jpeg'),
                         radius: 30.0,
                       ),
                       SizedBox(width: 30,),
