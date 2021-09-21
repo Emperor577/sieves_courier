@@ -8,7 +8,7 @@ import 'package:sieves_courier/models/order.model.dart';
 import 'package:sieves_courier/widgets/time_difference.widget.dart';
 import 'inner-pages/order_detail.screen.dart';
 import 'package:sieves_courier/providers/order.provider.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 
 class OrderCard extends StatefulWidget {
   final Order order;
@@ -125,12 +125,21 @@ class _OrderCardState extends State<OrderCard> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(
-                              order.customer['contacts'][0]['phone'],
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 13
+                            InkWell(
+                              onTap: () async {
+                                if (await canLaunch('tel:' + order.customer['contacts'][0]['phone'])) {
+                                await launch('tel:' + order.customer['contacts'][0]['phone']);
+                                } else {
+                                throw 'Could not launch ' + 'tel:' + order.customer['contacts'][0]['phone'];
+                                }
+                              },
+                              child: Text(
+                                order.customer['contacts'][0]['phone'],
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 13
+                                ),
                               ),
                             ),
                             SizedBox(height: 5,),
