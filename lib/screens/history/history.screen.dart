@@ -40,7 +40,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
     List<Map<String, dynamic>> _historyItems = generateItems(deliveredOrders);
     Size size = MediaQuery.of(context).size;
     return Container(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(
+        top: 20,
+        left: 20,
+        right: 20
+      ),
       width: size.width,
       height: size.height,
       child: Column(
@@ -48,11 +52,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
         children: <Widget>[
           Text(
             'История',
-            style: TextStyle(
-                color: primaryBlueColor,
-                fontSize: 18.0,
-                fontWeight: FontWeight.w600
-            ),
+            style: primaryHeadTitleStyle,
           ),
           SizedBox(height: 15),
           Expanded(

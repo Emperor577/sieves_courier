@@ -1,4 +1,4 @@
-#Mon Sep 20 18:33:50 UZT 2021
+#Mon Sep 27 14:20:49 UZT 2021
 base.0=/run/media/nurmuhammad/9EAEEBDEAEEBAD49/projects/Flutter/sieves_courier/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

@@ -4,7 +4,6 @@ import 'package:sieves_courier/providers/auth.provider.dart';
 import 'package:sieves_courier/providers/order.provider.dart';
 import 'package:sieves_courier/screens/auth/auth.screen.dart';
 import 'package:sieves_courier/screens/auth/auth_by_auth0.screen.dart';
-import 'package:sieves_courier/screens/auth/auth_webview.screen.dart';
 import 'package:sieves_courier/screens/history/history.screen.dart';
 import 'package:sieves_courier/screens/home/home.dart';
 import 'package:sieves_courier/screens/orders/orders.screen.dart';

@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import 'package:sieves_courier/providers/order.provider.dart';
 import 'package:sieves_courier/constants.dart';
-import 'package:sieves_courier/screens/orders/inner-pages/order_detail.screen.dart';
 import 'package:sieves_courier/models/order.model.dart';
 import 'package:sieves_courier/screens/orders/order_card.dart';
 
@@ -37,63 +36,56 @@ class OrderList extends StatefulWidget {
 }
 
 class _OrderListState extends State<OrderList> {
-  Timer _timer = Timer.periodic(new Duration(seconds: 1), (timer) {});
-  int _indicatorCounter = 0;
-
+  late List<Order> activeOrders;
+  late Future fetchOrder;
   @override
   void initState() {
-    if (_indicatorCounter <= 3) {
-      _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-        setState(() {
-          _indicatorCounter++;
-        });
-      });
-    } else {
-      _timer.cancel();
-    }
+    fetchOrder = Provider.of<OrderProvider>(context, listen: false).fetchOrders();
+    activeOrders = Provider.of<OrderProvider>(context, listen: false).activeOrders;
     super.initState();
   }
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    final List<Order> activeOrders = Provider.of<OrderProvider>(context).activeOrders;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
                 'Активные заказы',
                 style: primaryHeadTitleStyle
             ),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  Provider.of<OrderProvider>(context, listen: false).fetchOrders();
-                  _indicatorCounter = 0;
-                });
-              },
-              icon: Icon(Icons.refresh),
-            )
           ],
         ),
         SizedBox(height: 15),
         Expanded(
-          child: activeOrders.length == 0 ?
-            Center(
-              child: _indicatorCounter <= 3 ? CircularProgressIndicator() : Text('Список пуст'),
-            ) :
-            ListView.builder(
-              itemCount: activeOrders.length,
-              itemBuilder: (context, i) => OrderCard(order: activeOrders[i]),
-            ),
+          child: FutureBuilder(
+            future: fetchOrder,
+            builder: (ctx, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                if (snapshot.hasError) {
+                  return Center(child: Text('has error'),);
+                } else {
+                  if (activeOrders.length > 0) {
+                    return Consumer<OrderProvider>(
+                      builder: (ctx, order, child) => ListView.builder(
+                        itemCount: order.activeOrders.length,
+                        itemBuilder: (ctx, i) => OrderCard(order: order.activeOrders[i]),
+                      ),
+                    );
+                  }
+                  return Center(child: Text('список пусто'),);
+                }
+              }
+            },
+          )
         )
       ],
     );

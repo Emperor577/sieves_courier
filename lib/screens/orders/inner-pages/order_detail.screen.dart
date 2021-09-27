@@ -34,8 +34,6 @@ class OrderDetailScreen extends StatelessWidget {
       final title = "Ocean Beach";
       final availableMaps = await mapLauncher.MapLauncher.installedMaps;
 
-      print(availableMaps);
-
       showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
