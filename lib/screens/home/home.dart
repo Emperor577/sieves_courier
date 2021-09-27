@@ -20,6 +20,20 @@ class _HomeScreenState extends State<HomeScreen> {
     HistoryScreen(),
     ProfileScreen()
   ];
+  final List<Map<String, Object>> pages = [
+    {
+      'page': OrdersScreen(),
+      'title': 'Активные заказы'
+    },
+    {
+      'page' : HistoryScreen(),
+      'title' : 'История',
+    },
+    {
+      'page' : ProfileScreen(),
+      'title' : 'Профиль'
+    }
+  ];
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -38,7 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
-      body: _pages[_selectedIndex],
+      appBar: AppBar(
+        title: Text(pages[_selectedIndex]['title'] as String),
+      ),
+      body: SafeArea(
+        child: _pages[_selectedIndex],
+      ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           boxShadow: [

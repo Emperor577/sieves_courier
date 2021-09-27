@@ -72,6 +72,7 @@ class OrderDetailScreen extends StatelessWidget {
     );
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Stack(
             children: <Widget>[
@@ -138,15 +139,16 @@ class OrderDetailScreen extends StatelessWidget {
                       label: Text('Открыть с ...'),
                   ),
                 ),
-              Positioned(
-                top: 10,
-                left: 10,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                      Icons.arrow_back
+              SafeArea(
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                        Icons.arrow_back
+                    ),
                   ),
                 ),
               ),
@@ -261,6 +263,7 @@ class OrderDetailScreen extends StatelessWidget {
                                 fontSize: 14,
                                 color: Colors.black
                             ),
+                            textAlign: TextAlign.end,
                           ),
                         )
                       ],
@@ -370,6 +373,9 @@ class OrderDetailScreen extends StatelessWidget {
             ),
           ),
           Container(
+            padding: const EdgeInsets.only(
+              bottom: 20
+            ),
             child: ElevatedButton(
               child: Text(
                 'Доставлен',
