@@ -13,6 +13,7 @@ class OrderProvider with ChangeNotifier {
   List<Order> _activeOrders = [];
   List<Order> _deliveredOrders = [];
   Map<String, dynamic> _data;
+  Map<String, dynamic> _analyticsDelivery = {};
 
   OrderProvider(this._data, this._orders);
 
@@ -28,7 +29,11 @@ class OrderProvider with ChangeNotifier {
     return [..._deliveredOrders];
   }
 
-  Future<void> fetchOrders() async {
+  Map<String, dynamic> get analyticsDelivery {
+    return _analyticsDelivery;
+  }
+
+  Future<List<Order>> fetchOrders() async {
     if (_data.isNotEmpty) {
       final url = API_DOMAIN +
           '/order?orderType=delivery&delivery_employee_id=' +
@@ -93,10 +98,12 @@ class OrderProvider with ChangeNotifier {
           }
         });
         notifyListeners();
+        return Future.value(activeOrders);
       } catch (error) {
         throw error;
       }
     }
+    return [];
   }
 
   bool checkTimeout(String from) {
@@ -125,5 +132,27 @@ class OrderProvider with ChangeNotifier {
     } catch (error) {
       throw error;
     }
+  }
+
+  Future<Map<String, dynamic>> calculateDeliveryAnalytics() async {
+    int total = 0;
+    int card = 0;
+    int cash = 0;
+    orders.forEach((element) {
+      total += element.value!.toInt();
+      element.transactions.forEach((transaction) {
+        if (transaction['payment_type_id'] == 1) {
+          card += int.parse(transaction['amount'].toString());
+        } else {
+          cash += int.parse(transaction['amount'].toString());
+        }
+      });
+    });
+    _analyticsDelivery = {
+      "total": total,
+      "cash": cash,
+      "card": card
+    };
+    return Future.value(_analyticsDelivery);
   }
 }

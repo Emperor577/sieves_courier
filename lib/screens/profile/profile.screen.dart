@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sieves_courier/constants.dart';
+import 'package:sieves_courier/screens/profile/inner-pages/delivery-analytics.screen.dart';
 import '../../providers/auth.provider.dart';
 import 'package:provider/provider.dart';
 
@@ -12,18 +13,13 @@ class ProfileScreen extends StatelessWidget {
     final employee = Provider.of<Auth>(context).employee;
     final photo = employee['individual']['photo'];
     final networkImageUrl = photo == null ?
-      'https://st4.depositphotos.com/4329009/19956/v/380/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg'
+      profileDefaultImageUrl
       : SPACE_URL + '/' + photo['thumbnail'] + '/' + photo['name'] + '.' + photo['format'];
     return SingleChildScrollView(
       padding: const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            'Профиль',
-            style: primaryHeadTitleStyle
-          ),
-          SizedBox(height: 15,),
           Card(
             elevation: primaryCardElevation,
             child: Container(
@@ -149,23 +145,31 @@ class ProfileScreen extends StatelessWidget {
           SizedBox(height: 8,),
           Card(
             elevation: primaryCardElevation,
-            child: Container(
-              padding: const EdgeInsets.all(20.0),
-              child: new Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.directions_car,
-                    color: primaryGreyColor,
-                  ),
-                  SizedBox(width: 30,),
-                  Text(
-                    'Аналитика Доставки',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  DeliveryAnalyticsScreen.routeName
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(20.0),
+                child: new Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.directions_car,
+                      color: primaryGreyColor,
                     ),
-                  )
-                ],
+                    SizedBox(width: 30,),
+                    Text(
+                      'Аналитика Доставки',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

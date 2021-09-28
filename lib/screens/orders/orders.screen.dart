@@ -19,7 +19,6 @@ class OrdersScreen extends StatelessWidget {
       height: size.height,
       width: size.width,
       padding: const EdgeInsets.only(
-        top: 20,
         left: 20,
         right: 20
       ),
@@ -36,12 +35,11 @@ class OrderList extends StatefulWidget {
 }
 
 class _OrderListState extends State<OrderList> {
-  late List<Order> activeOrders;
-  late Future fetchOrder;
+  late Future<List<Order>> activeOrders;
+  late Future fetchOrders;
   @override
   void initState() {
-    fetchOrder = Provider.of<OrderProvider>(context, listen: false).fetchOrders();
-    activeOrders = Provider.of<OrderProvider>(context, listen: false).activeOrders;
+    fetchOrders = Provider.of<OrderProvider>(context, listen: false).fetchOrders();
     super.initState();
   }
   @override
@@ -50,20 +48,10 @@ class _OrderListState extends State<OrderList> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-                'Активные заказы',
-                style: primaryHeadTitleStyle
-            ),
-          ],
-        ),
         SizedBox(height: 15),
         Expanded(
           child: FutureBuilder(
-            future: fetchOrder,
+            future: fetchOrders,
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
@@ -73,7 +61,7 @@ class _OrderListState extends State<OrderList> {
                 if (snapshot.hasError) {
                   return Center(child: Text('has error'),);
                 } else {
-                  if (activeOrders.length > 0) {
+                  if (snapshot.hasData) {
                     return Consumer<OrderProvider>(
                       builder: (ctx, order, child) => ListView.builder(
                         itemCount: order.activeOrders.length,

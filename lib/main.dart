@@ -8,6 +8,7 @@ import 'package:sieves_courier/screens/auth/auth_by_auth0.screen.dart';
 import 'package:sieves_courier/screens/history/history.screen.dart';
 import 'package:sieves_courier/screens/home/home.dart';
 import 'package:sieves_courier/screens/orders/orders.screen.dart';
+import 'package:sieves_courier/screens/profile/inner-pages/delivery-analytics.screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
           home: auth.isAuth ? HomeScreen() : AuthByAuth0Screen(),
           routes: {
             HomeScreen.routeName: (ctx) => HomeScreen(),
-            OrdersScreen.routeName: (ctx) => OrdersScreen()
+            OrdersScreen.routeName: (ctx) => OrdersScreen(),
+            DeliveryAnalyticsScreen.routeName: (ctx) => DeliveryAnalyticsScreen()
           },
         ),
       ),

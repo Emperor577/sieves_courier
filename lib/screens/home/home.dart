@@ -43,14 +43,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    Future.delayed(Duration.zero).then((_) async {
-      await Provider.of<OrderProvider>(context, listen: false).fetchOrders();
-    });
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
       appBar: AppBar(
         title: Text(pages[_selectedIndex]['title'] as String),

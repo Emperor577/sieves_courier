@@ -38,7 +38,7 @@ class _OrderCardState extends State<OrderCard> {
             children: <Widget>[
               Container(
                 padding: const EdgeInsets.all(20.0),
-                child: GestureDetector(
+                child: InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
@@ -128,7 +128,9 @@ class _OrderCardState extends State<OrderCard> {
                             InkWell(
                               onTap: () async {
                                 if (await canLaunch('tel:' + order.customer['contacts'][0]['phone'])) {
-                                await launch('tel:' + order.customer['contacts'][0]['phone']);
+                                  String phone = order.customer['contacts'][0]['phone'].toString().contains('+') ?
+                                  order.customer['contacts'][0]['phone'] : '+' + order.customer['contacts'][0]['phone'];
+                                await launch('tel:' + phone);
                                 } else {
                                 throw 'Could not launch ' + 'tel:' + order.customer['contacts'][0]['phone'];
                                 }

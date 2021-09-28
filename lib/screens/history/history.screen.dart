@@ -50,11 +50,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            'История',
-            style: primaryHeadTitleStyle,
-          ),
-          SizedBox(height: 15),
           Expanded(
             child: _historyItems.length == 0 ?
               Center(
