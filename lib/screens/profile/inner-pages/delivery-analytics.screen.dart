@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sieves_courier/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:sieves_courier/providers/order.provider.dart';
+import 'package:intl/intl.dart';
 
 
 class DeliveryAnalyticsScreen extends StatefulWidget {
@@ -29,6 +30,7 @@ class _DeliveryAnalyticsScreenState extends State<DeliveryAnalyticsScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     Map<String, dynamic> analytics = Provider.of<OrderProvider>(context, listen: false).analyticsDelivery;
+    NumberFormat numberFormat = NumberFormat.currency(locale: 'uz_UZS', decimalDigits: 0);
     return Scaffold(
       appBar: AppBar(
         title: Text('Аналитика доставки'),
@@ -60,7 +62,7 @@ class _DeliveryAnalyticsScreenState extends State<DeliveryAnalyticsScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                analytics['total'].toString() + ' UZS',
+                                numberFormat.format(analytics['total']),
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w700,
@@ -116,7 +118,7 @@ class _DeliveryAnalyticsScreenState extends State<DeliveryAnalyticsScreen> {
                               ),
                               Expanded(
                                 child: Text(
-                                  analytics['cash'].toString() + ' UZS',
+                                  numberFormat.format(analytics['cash']),
                                   style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
@@ -159,7 +161,7 @@ class _DeliveryAnalyticsScreenState extends State<DeliveryAnalyticsScreen> {
                               ),
                               Expanded(
                                 child: Text(
-                                  analytics['card'].toString() + ' UZS',
+                                  numberFormat.format(analytics['card']),
                                   style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,

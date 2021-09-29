@@ -31,6 +31,7 @@ dependencies:
   map_launcher: ^2.1.1
   url_launcher: ^6.0.10
   flutter_keychain: ^2.0.1
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
