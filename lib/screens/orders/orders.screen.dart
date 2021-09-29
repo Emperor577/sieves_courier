@@ -63,7 +63,8 @@ class _OrderListState extends State<OrderList> {
                 } else {
                   if (snapshot.hasData) {
                     return Consumer<OrderProvider>(
-                      builder: (ctx, order, child) => ListView.builder(
+                      builder: (ctx, order, child) => ListView.separated(
+                        separatorBuilder: (ctx, _) => SizedBox(height: 10,),
                         itemCount: order.activeOrders.length,
                         itemBuilder: (ctx, i) => OrderCard(order: order.activeOrders[i]),
                       ),
