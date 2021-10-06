@@ -1,23 +1,22 @@
-// import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:flutter_keychain/flutter_keychain.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SecureStorage {
 
-  // final _storage = FlutterSecureStorage();
+  final box = GetStorage();
 
   Future writeData(String key, String value) async {
-    return await FlutterKeychain.put(key: key, value: value);
+    return await box.write(key, value);
   }
 
   Future readData(String key) async {
-    return await FlutterKeychain.get(key: key);
+    return await box.read(key);
   }
 
   Future deleteData(String key) async{
-    return await FlutterKeychain.remove(key: key);
+    return await box.remove(key);
   }
 
   Future clear() async{
-    return await FlutterKeychain.clear();
+    return await box.erase();
   }
 }

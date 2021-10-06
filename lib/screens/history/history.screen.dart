@@ -4,6 +4,7 @@ import 'package:sieves_courier/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:sieves_courier/models/order.model.dart';
 import 'package:sieves_courier/providers/order.provider.dart';
+import 'package:intl/intl.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({ Key? key }) : super(key: key);
@@ -39,6 +40,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     List<Order> deliveredOrders = Provider.of<OrderProvider>(context).deliveredOrders;
     List<Map<String, dynamic>> _historyItems = generateItems(deliveredOrders);
     Size size = MediaQuery.of(context).size;
+    NumberFormat numberFormat = NumberFormat.currency(locale: 'uz_UZS', decimalDigits: 0);
     return Container(
       padding: const EdgeInsets.only(
         top: 20,
@@ -89,6 +91,15 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                   SizedBox(height: 5,),
                                   Text(
                                     _historyItems[index]['order'].delivery_time.toString(),
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xFFB1B1B1)
+                                    ),
+                                  ),
+                                  SizedBox(height: 10,),
+                                  Text(
+                                    numberFormat.format(_historyItems[index]['order'].value),
                                     style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600,

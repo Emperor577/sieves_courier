@@ -9,8 +9,11 @@ import 'package:sieves_courier/screens/history/history.screen.dart';
 import 'package:sieves_courier/screens/home/home.dart';
 import 'package:sieves_courier/screens/orders/orders.screen.dart';
 import 'package:sieves_courier/screens/profile/inner-pages/delivery-analytics.screen.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+
+void main() async {
+  await GetStorage.init();
   runApp(MyApp());
 }
 
@@ -33,6 +36,7 @@ class MyApp extends StatelessWidget {
       ],
       child: Consumer<Auth>(
         builder: (ctx, auth, _) => MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Sieves Courier',
           home: auth.isAuth ? HomeScreen() : AuthByAuth0Screen(),
           routes: {

@@ -226,7 +226,7 @@ class _OrderCardState extends State<OrderCard> {
                           ),
                           SizedBox(height: 5,),
                           Text(
-                            'Тип оплаты',
+                            'Адрес',
                             style: TextStyle(
                                 color: Color(0xFF949494),
                                 fontSize: 12,

@@ -30,7 +30,7 @@ dependencies:
   flutter_appauth: ^1.1.0
   map_launcher: ^2.1.1
   url_launcher: ^6.0.10
-  flutter_keychain: ^2.0.1
+  get_storage: ^2.0.3
   intl: ^0.17.0
 
 dev_dependencies:
