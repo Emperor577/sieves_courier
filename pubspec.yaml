@@ -32,6 +32,7 @@ dependencies:
   url_launcher: ^6.0.10
   get_storage: ^2.0.3
   intl: ^0.17.0
+  geolocator: ^8.0.1
 
 dev_dependencies:
   flutter_test:

@@ -1,11 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:sieves_courier/constants.dart';
 import 'package:sieves_courier/screens/history/history.screen.dart';
 import 'package:sieves_courier/screens/orders/orders.screen.dart';
-import 'package:flutter/services.dart';
 import 'package:sieves_courier/screens/profile/profile.screen.dart';
 import 'package:provider/provider.dart';
-import 'package:sieves_courier/providers/order.provider.dart';
+import 'package:sieves_courier/providers/auth.provider.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -43,8 +46,36 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    new Timer.periodic(new Duration(minutes: 3), (Timer t) {
+      getCurrentLocation();
+    });
     super.initState();
   }
+
+  void getCurrentLocation() async {
+    bool serviceEnabled;
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    dynamic permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      // Permissions are denied forever, handle appropriately.
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    await Provider.of<Auth>(context, listen: false).updateEmployee({"lat": position.latitude, "lng": position.longitude});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

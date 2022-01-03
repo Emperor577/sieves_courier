@@ -18,14 +18,9 @@ class OrderDetailScreen extends StatelessWidget {
   final Order order;
   
   String getAddress(Map<String, dynamic> address) {
-    if (address['address_2'] == null) {
-      final district = address['district'];
-      final decodedAddress = json.decode(address['address']);
-      return district + ', ' + decodedAddress['street'] + ', ' + decodedAddress['house'];
-    } else {
-      final address_2 = address['address_2'].toString().split(',');
-      return address_2[0] + ', ' + address_2[1] + ', ' + address_2[2];
-    }
+    final district = address['district'];
+    final decodedAddress = json.decode(address['address']);
+    return district + ', ' + decodedAddress['street'] + ', ' + decodedAddress['house'].toString();
   }
 
   openMapsSheet(context) async {

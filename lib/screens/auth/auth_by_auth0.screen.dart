@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter_appauth/flutter_appauth.dart';
@@ -48,7 +50,7 @@ class _AuthByAuth0ScreenState extends State<AuthByAuth0Screen> {
     } catch (error) {
       await secureStorage.writeData('refresh_token', 'null');
     }
-    loginAction();
+    // loginAction();
   }
 
   @override
@@ -81,14 +83,17 @@ class _AuthByAuth0ScreenState extends State<AuthByAuth0Screen> {
         utf8.decode(base64Url.decode(base64Url.normalize(parts[1]))));
   }
 
+  Future<List<String>> getPromtValue() async {
+    final storedRefreshToken = await secureStorage.readData('refresh_token');
+    return [];
+  }
+
   Future<void> loginAction() async {
     setState(() {
       isBusy = true;
       errorMessage = '';
     });
     try {
-      final storedRefreshToken = await secureStorage.readData('refresh_token');
-
       final AuthorizationTokenResponse? result =
       await appAuth.authorizeAndExchangeCode(
         AuthorizationTokenRequest(
@@ -99,7 +104,7 @@ class _AuthByAuth0ScreenState extends State<AuthByAuth0Screen> {
           additionalParameters: {
             'audience': 'localhost:8080/loook-api/web'
           },
-          promptValues: storedRefreshToken.toString() != 'null' ? [] : ['login']
+          promptValues: await getPromtValue()
         ),
       );
       final idToken = parseIdToken(result!.idToken.toString());

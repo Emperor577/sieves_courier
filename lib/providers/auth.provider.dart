@@ -100,6 +100,20 @@ class Auth with ChangeNotifier {
     }
   }
 
+  Future<void> updateEmployee(Map<String, dynamic> payload) async {
+    final url = API_DOMAIN + '/employee/' + _employee['id'].toString();
+    try {
+      final response = await http.put(Uri.parse(url), headers: {
+        HttpHeaders.authorizationHeader: 'Bearer ' + token,
+        HttpHeaders.contentTypeHeader: 'application/json'
+      },
+          body: json.encode(payload)
+      );
+    } catch (error) {
+      throw error;
+    }
+  }
+
   void logoutAction() async {
     await secureStorage.deleteData('refresh_token');
     await http.get(
