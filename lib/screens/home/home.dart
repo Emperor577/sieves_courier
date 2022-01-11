@@ -46,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    getCurrentLocation();
     new Timer.periodic(new Duration(minutes: 3), (Timer t) {
       getCurrentLocation();
     });
@@ -56,22 +57,14 @@ class _HomeScreenState extends State<HomeScreen> {
     bool serviceEnabled;
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
+      await Geolocator.openLocationSettings();
     }
 
     dynamic permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
+    if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
       permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
-      }
     }
 
-    if (permission == LocationPermission.deniedForever) {
-      // Permissions are denied forever, handle appropriately.
-      return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
-    }
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     await Provider.of<Auth>(context, listen: false).updateEmployee({"lat": position.latitude, "lng": position.longitude});
   }
