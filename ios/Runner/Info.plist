@@ -25,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.example.sievesCourier</string>
+				<string>uz.go.delivery</string>
 			</array>
 		</dict>
 	</array>

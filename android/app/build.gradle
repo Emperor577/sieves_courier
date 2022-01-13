@@ -39,13 +39,13 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.sieves_courier"
-        minSdkVersion 20
+        applicationId "uz.go.delivery"
+        minSdkVersion 16
         targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         manifestPlaceholders = [
-                'appAuthRedirectScheme': 'com.example.sievescourier'
+                'appAuthRedirectScheme': 'uz.go.delivery'
         ]
     }
 

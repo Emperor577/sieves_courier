@@ -1,4 +1,4 @@
-package com.example.sieves_courier
+package uz.go.delivery
 
 import io.flutter.embedding.android.FlutterActivity
 

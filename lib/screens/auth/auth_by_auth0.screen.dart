@@ -15,7 +15,7 @@ final SecureStorage secureStorage = SecureStorage();
 const AUTH0_DOMAIN = 'exodelicainc.eu.auth0.com';
 const AUTH0_CLIENT_ID = 'PRrEzFPGkPYdrTorrCF4JxqnySYRarbh';
 
-const AUTH0_REDIRECT_URI = 'com.example.sievescourier://login-callback';
+const AUTH0_REDIRECT_URI = 'uz.go.delivery://login-callback';
 const AUTH0_ISSUER = 'https://$AUTH0_DOMAIN';
 
 /// -----------------------------------
@@ -56,10 +56,10 @@ class _AuthByAuth0ScreenState extends State<AuthByAuth0Screen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Authenticate by Auth0',
+      title: 'Go Delivery Authenticate',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Authenticate by Auth0'),
+          title: Text('Authenticate by Go Delivery'),
         ),
         body: Center(
           child: isBusy
