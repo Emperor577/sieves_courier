@@ -7,8 +7,9 @@ import 'package:sieves_courier/screens/orders/orders.screen.dart';
 import 'package:sieves_courier/screens/profile/profile.screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sieves_courier/providers/auth.provider.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
+import 'package:permission_handler/permission_handler.dart' as permissionHandler;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Location location = new Location();
   final List<Widget> _pages = [
     OrdersScreen(),
     HistoryScreen(),
@@ -54,19 +56,39 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void getCurrentLocation() async {
-    bool serviceEnabled;
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      await Geolocator.openLocationSettings();
+    bool _serviceEnabled;
+    permissionHandler.PermissionStatus permissionStatus;
+    LocationData _locationData;
+
+    _serviceEnabled = await location.serviceEnabled();
+    if (!_serviceEnabled) {
+      _serviceEnabled = await location.requestService();
+      if (!_serviceEnabled) {
+        return;
+      }
     }
 
-    dynamic permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
-      permission = await Geolocator.requestPermission();
+    permissionStatus = await permissionHandler.Permission.locationWhenInUse.status;
+    if (!permissionStatus.isGranted) {
+      var permissionStatus = await permissionHandler.Permission.locationWhenInUse.request();
+      if (permissionStatus.isGranted) {
+        await _showLocationPermissionDialog();
+      }
+      if(permissionStatus.isPermanentlyDenied){
+        //When the user previously rejected the permission and select never ask again
+        //Open the screen of settings
+        bool res = await permissionHandler.openAppSettings();
+      }
+    } else{
+      //In use is available, check the always in use
+      var status = await permissionHandler.Permission.locationAlways.status;
+      if(!status.isGranted) {
+        await _showLocationPermissionDialog();
+      }
     }
 
-    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    await Provider.of<Auth>(context, listen: false).updateEmployee({"lat": position.latitude, "lng": position.longitude});
+    _locationData = await location.getLocation();
+    await Provider.of<Auth>(context, listen: false).updateEmployee({"lat": _locationData.latitude, "lng": _locationData.longitude});
   }
 
   @override
@@ -110,6 +132,32 @@ class _HomeScreenState extends State<HomeScreen> {
           type: BottomNavigationBarType.fixed,
         ),
       )
+    );
+  }
+
+  Future<void> _showLocationPermissionDialog() async {
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (_) => AlertDialog(
+          title: Text('Use Your Location'),
+          content: Text('Go Delivery collects your location data to enable identification of nearby orders even when the app not in use'),
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('Deny')
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  permissionHandler.Permission.locationAlways.request();
+                  Navigator.of(context).pop();
+                },
+                child: Text('Accept')
+            )
+          ],
+        ),
     );
   }
 }

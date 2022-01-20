@@ -13,7 +13,7 @@ final SecureStorage secureStorage = SecureStorage();
 ///           Auth0 Variables
 /// -----------------------------------
 const AUTH0_DOMAIN = 'exodelicainc.eu.auth0.com';
-const AUTH0_CLIENT_ID = 'PRrEzFPGkPYdrTorrCF4JxqnySYRarbh';
+const AUTH0_CLIENT_ID = 'FSESux5wUbCU0mivNN5OBsCPtJObbTuJ';
 
 const AUTH0_REDIRECT_URI = 'uz.go.delivery://login-callback';
 const AUTH0_ISSUER = 'https://$AUTH0_DOMAIN';
