@@ -34,6 +34,7 @@ dependencies:
   intl: ^0.17.0
   location: ^4.3.0
   permission_handler: ^8.3.0
+  app_settings: ^4.1.1
 
 dev_dependencies:
   flutter_test:
@@ -44,7 +45,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/logo.png"
+  image_path: "assets/images/logo_1.png"
 
 flutter_native_splash:
   color: "#ffffff"

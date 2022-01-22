@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)"
+options: "fa6f559583b8a5bf64cb8ea84745fd33"
+build_time: [1635761762, 776250000]
+inputs:
+  "/Volumes/iMac/projects/flutter/sieves_courier/ios/Runner/AppDelegate.swift": [1623437044, 0]

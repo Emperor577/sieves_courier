@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:sieves_courier/constants.dart';
 import 'package:sieves_courier/screens/history/history.screen.dart';
@@ -10,6 +10,7 @@ import 'package:sieves_courier/providers/auth.provider.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
 import 'package:permission_handler/permission_handler.dart' as permissionHandler;
+import 'package:app_settings/app_settings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -48,6 +49,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    location.enableBackgroundMode(enable: true);
+    if (Platform.isAndroid) {
+      Future(_showLocationPermissionDialog);
+    } else {
+      _configLocationSettings();
+    }
     getCurrentLocation();
     new Timer.periodic(new Duration(minutes: 3), (Timer t) {
       getCurrentLocation();
@@ -56,36 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void getCurrentLocation() async {
-    bool _serviceEnabled;
-    permissionHandler.PermissionStatus permissionStatus;
     LocationData _locationData;
-
-    _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) {
-        return;
-      }
-    }
-
-    permissionStatus = await permissionHandler.Permission.locationWhenInUse.status;
-    if (!permissionStatus.isGranted) {
-      var permissionStatus = await permissionHandler.Permission.locationWhenInUse.request();
-      if (permissionStatus.isGranted) {
-        await _showLocationPermissionDialog();
-      }
-      if(permissionStatus.isPermanentlyDenied){
-        //When the user previously rejected the permission and select never ask again
-        //Open the screen of settings
-        bool res = await permissionHandler.openAppSettings();
-      }
-    } else{
-      //In use is available, check the always in use
-      var status = await permissionHandler.Permission.locationAlways.status;
-      if(!status.isGranted) {
-        await _showLocationPermissionDialog();
-      }
-    }
 
     _locationData = await location.getLocation();
     await Provider.of<Auth>(context, listen: false).updateEmployee({"lat": _locationData.latitude, "lng": _locationData.longitude});
@@ -135,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Future<void> _showLocationPermissionDialog() async {
+   Future<void> _showLocationPermissionDialog() async {
     return showDialog(
         context: context,
         barrierDismissible: false,
@@ -151,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  permissionHandler.Permission.locationAlways.request();
+                  _configLocationSettings();
                   Navigator.of(context).pop();
                 },
                 child: Text('Accept')
@@ -159,5 +137,38 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
     );
+  }
+
+  _configLocationSettings() async {
+    PermissionStatus permissionStatus = await location.hasPermission();
+    if (permissionStatus == PermissionStatus.denied) {
+      permissionStatus = await location.requestPermission();
+      if (permissionStatus == PermissionStatus.granted) {
+        _openAlwaysLocationSettings();
+      } else {
+        AppSettings.openLocationSettings();
+      }
+    }
+    else {
+      if (permissionStatus == PermissionStatus.granted) {
+        _openAlwaysLocationSettings();
+      }
+    }
+  }
+
+
+  _openAlwaysLocationSettings() async {
+    var needToOpenLocationSettings = false;
+    if (Platform.isAndroid) {
+      var status = await permissionHandler.Permission.locationAlways.status;
+      needToOpenLocationSettings = (status == permissionHandler.PermissionStatus.denied);
+    }
+    if (needToOpenLocationSettings) {
+      // TODO make showAlwaysLocationDialog
+      await permissionHandler.Permission.locationAlways.request();
+    }
+    if (Platform.isIOS) {
+      AppSettings.openLocationSettings();
+    }
   }
 }
