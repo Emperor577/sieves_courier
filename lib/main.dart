@@ -16,7 +16,10 @@ void main() async {
   await GetStorage.init();
   runApp(MyApp());
 }
-
+// TODO clear storage when logout
+// TODO show alert dialog at runtime
+// TODO add order success rate
+// TODO change login part screen
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
