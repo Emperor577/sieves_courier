@@ -110,7 +110,6 @@ class _AuthByAuth0ScreenState extends State<AuthByAuth0Screen> {
       final idToken = parseIdToken(result!.idToken.toString());
       await Provider.of<Auth>(context, listen: false).setToken(result.accessToken.toString());
       await Provider.of<Auth>(context, listen: false).setAuthData(idToken);
-      // TODO encrypt token name
       await secureStorage.writeData('refresh_token', result.accessToken.toString());
     } catch (e, s) {
       print('login error: $e - stack: $s');
