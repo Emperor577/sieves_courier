@@ -17,7 +17,7 @@ class SecureStorage {
     // return await box.read(key);
   }
 
-  Future deleteData(String key) async{
+  Future deleteData(String key) async {
     return await storage.delete(key: key);
     // return await box.remove(key);
   }

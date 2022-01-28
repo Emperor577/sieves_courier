@@ -85,7 +85,7 @@ class _AuthByAuth0ScreenState extends State<AuthByAuth0Screen> {
 
   Future<List<String>> getPromtValue() async {
     final storedRefreshToken = await secureStorage.readData('refresh_token');
-    return [];
+    return storedRefreshToken == null ? ['login'] : [];
   }
 
   Future<void> loginAction() async {
