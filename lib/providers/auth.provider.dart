@@ -5,10 +5,9 @@ import 'package:http/http.dart' as http;
 import 'package:sieves_courier/services/storage.dart';
 import '../constants.dart';
 import '../models/http_exception.dart';
-// import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:sieves_courier/providers/order.provider.dart';
-// final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
+
 final secureStorage = SecureStorage();
 
 class Auth with ChangeNotifier {
@@ -16,6 +15,7 @@ class Auth with ChangeNotifier {
   int? daySessionId;
   var _employee;
   Map<String, dynamic> _authData = {};
+  String? _locationPermissionStatus;
 
 
   bool get isAuth {
@@ -24,6 +24,19 @@ class Auth with ChangeNotifier {
 
   get token {
     return _token;
+  }
+
+  Future<bool> get locationPermissionStatus async {
+    if (_locationPermissionStatus == null) {
+      _locationPermissionStatus = await secureStorage.readData('locationPermissionStatus');
+    }
+    return Future.value(_locationPermissionStatus != null);
+  }
+
+  Future<void> setPermissionStatus() async {
+    _locationPermissionStatus = 'true';
+    await secureStorage.writeData('locationPermissionStatus', 'true');
+    notifyListeners();
   }
 
   Future<void> setToken(String accessToken) async{
@@ -54,8 +67,8 @@ class Auth with ChangeNotifier {
     return _authData;
   }
 
-  Future<void> setAuthData(Map<String, dynamic> data) async {
-    final url = API_DOMAIN + '/identity/0?auth_id=' + data['sub'] + '&expand=employee.branch,employee.individual.photo';
+  Future<void> setAuthData(String sub) async {
+    final url = API_DOMAIN + '/identity/0?auth_id=' + sub + '&expand=employee.branch,employee.individual.photo';
     try {
       final http.Response response = await http.get(
         Uri.parse(url),

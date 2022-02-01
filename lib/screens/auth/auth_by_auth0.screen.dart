@@ -24,7 +24,7 @@ const AUTH0_ISSUER = 'https://$AUTH0_DOMAIN';
 
 class AuthByAuth0Screen extends StatefulWidget {
   const AuthByAuth0Screen({Key? key}) : super(key: key);
-
+  static const routeName = '/auth';
   @override
   _AuthByAuth0ScreenState createState() => _AuthByAuth0ScreenState();
 }
@@ -109,7 +109,7 @@ class _AuthByAuth0ScreenState extends State<AuthByAuth0Screen> {
       );
       final idToken = parseIdToken(result!.idToken.toString());
       await Provider.of<Auth>(context, listen: false).setToken(result.accessToken.toString());
-      await Provider.of<Auth>(context, listen: false).setAuthData(idToken);
+      await Provider.of<Auth>(context, listen: false).setAuthData(idToken['sub']);
       await secureStorage.writeData('refresh_token', result.accessToken.toString());
     } catch (e, s) {
       print('login error: $e - stack: $s');

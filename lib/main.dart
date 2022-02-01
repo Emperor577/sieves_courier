@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
@@ -7,6 +9,7 @@ import 'package:sieves_courier/screens/auth/auth.screen.dart';
 import 'package:sieves_courier/screens/auth/auth_by_auth0.screen.dart';
 import 'package:sieves_courier/screens/history/history.screen.dart';
 import 'package:sieves_courier/screens/home/home.dart';
+import 'package:sieves_courier/screens/home/permission.screen.dart';
 import 'package:sieves_courier/screens/orders/orders.screen.dart';
 import 'package:sieves_courier/screens/profile/inner-pages/delivery-analytics.screen.dart';
 import 'package:get_storage/get_storage.dart';
@@ -17,10 +20,14 @@ void main() async {
   runApp(MyApp());
 }
 // TODO show alert dialog at runtime
+    // show dialog before auth: if user accept move forward else close app; if user accept not show next time
+    // request permission after auth
 // TODO add order success rate
+// TODO remove storage in ios after logout or delete app
 // TODO change login part screen
+
+
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -40,11 +47,25 @@ class MyApp extends StatelessWidget {
         builder: (ctx, auth, _) => MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Sieves Courier',
-          home: auth.isAuth ? HomeScreen() : AuthByAuth0Screen(),
+          home: FutureBuilder(builder: (context, AsyncSnapshot<bool> snapshot) {
+              if (snapshot.connectionState.index != 3) {
+               return CircularProgressIndicator();
+              } else {
+                if (snapshot.hasData && snapshot.data != null && snapshot.data == true) {
+                  return auth.isAuth ? HomeScreen() : AuthByAuth0Screen();
+                }
+                else {
+                  return PermissionScreen();
+                }
+              }
+            },
+            future: auth.locationPermissionStatus,
+          ),
           routes: {
             HomeScreen.routeName: (ctx) => HomeScreen(),
             OrdersScreen.routeName: (ctx) => OrdersScreen(),
-            DeliveryAnalyticsScreen.routeName: (ctx) => DeliveryAnalyticsScreen()
+            DeliveryAnalyticsScreen.routeName: (ctx) => DeliveryAnalyticsScreen(),
+            AuthByAuth0Screen.routeName: (ctx) => AuthByAuth0Screen(),
           },
         ),
       ),

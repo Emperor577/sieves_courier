@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    Future(_showLocationPermissionDialog).then((value) => getCurrentLocation());
+    Future(_configLocationSettings).then((value) => getCurrentLocation());
     new Timer.periodic(new Duration(minutes: 3), (Timer t) {
       getCurrentLocation();
     });
@@ -114,49 +114,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-   Future<void> _showLocationPermissionDialog() async {
-    var isAllowed = await storage.readData('locationPermission');
-    if (isAllowed != null) {
-      return;
-    }
-    return showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (_) => AlertDialog(
-          title: Text('Use Your Location'),
-          content: Text('Go Delivery collects your location data to enable identification of nearby orders even when the app not in use'),
-          actions: [
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('Deny'),
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.redAccent
-                ),
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  storage.writeData('locationPermission', 'true');
-                  _configLocationSettings();
-                  Navigator.of(context).pop();
-                },
-                child: Text('Accept')
-            )
-          ],
-        ),
-    );
-  }
-
-  _configLocationSettings() async {
+  Future<void> _configLocationSettings() async {
     location.enableBackgroundMode(enable: true);
     PermissionStatus permissionStatus = await location.hasPermission();
     if (permissionStatus == PermissionStatus.denied) {
       permissionStatus = await location.requestPermission();
       if (permissionStatus == PermissionStatus.granted) {
         _openAlwaysLocationSettings();
-        print('permissionHandler.Permission.locationAlways.status');
-        print(await permissionHandler.Permission.locationAlways.status);
       } else {
         AppSettings.openLocationSettings();
       }
