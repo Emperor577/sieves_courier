@@ -20,11 +20,6 @@ void main() async {
   runApp(MyApp());
 }
 
-// TODO add order success rate
-// TODO remove storage in ios after logout or delete app
-// TODO change login part screen
-
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
