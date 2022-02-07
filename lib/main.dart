@@ -19,9 +19,7 @@ void main() async {
   // await GetStorage.init();
   runApp(MyApp());
 }
-// TODO show alert dialog at runtime
-    // show dialog before auth: if user accept move forward else close app; if user accept not show next time
-    // request permission after auth
+
 // TODO add order success rate
 // TODO remove storage in ios after logout or delete app
 // TODO change login part screen

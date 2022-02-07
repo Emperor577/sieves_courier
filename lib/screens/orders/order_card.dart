@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,6 +28,24 @@ class _OrderCardState extends State<OrderCard> {
     final district = address['district'];
     final decodedAddress = json.decode(address['address']);
     return district + ', ' + decodedAddress['street'] + ', ' + decodedAddress['house'].toString();
+  }
+
+  String getSuccessRate(int total, int success) {
+    var rate = (success * 100) / total;
+    return rate.toStringAsFixed(0);
+  }
+
+  Color getRelatedColor(int total, int success) {
+    var rate = int.parse(getSuccessRate(total, success));
+    if (40 >= rate && rate > 0) {
+      return primaryRedColor;
+    }
+    if (100 >= rate && rate > 70) {
+      return Colors.greenAccent;
+    }
+    else {
+      return Colors.amber;
+    }
   }
 
   @override
@@ -227,6 +246,74 @@ class _OrderCardState extends State<OrderCard> {
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600
                             ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(height: 22,),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.trending_up_outlined,
+                      color: Color(0xFF949494),
+                    ),
+                    SizedBox(width: 30,),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
+                            children: [
+                              Text(
+                                order.customer['total_orders'].toString() + '/' + order.customer['successful_orders'].toString() + '/' + (order.customer['total_orders'] - order.customer['successful_orders'] - 1).toString(),
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13
+                                ),
+                                maxLines: 1,
+                              ),
+                              SizedBox(width: 20,),
+                              Container(
+                                padding: const EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                  color: getRelatedColor(order.customer['total_orders'], order.customer['successful_orders']),
+                                  borderRadius: BorderRadius.circular(10)
+                                ),
+                                child: Text(
+                                  getSuccessRate(order.customer['total_orders'], order.customer['successful_orders']) + '%',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 5,),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Степень успеха:',
+                                style: TextStyle(
+                                    color: Color(0xFF949494),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600
+                                ),
+                              ),
+                              Text(
+                                'Всего заказов/Успешный/Отменено',
+                                style: TextStyle(
+                                    color: Color(0xFF949494),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600
+                                ),
+                              ),
+                            ],
                           )
                         ],
                       ),
