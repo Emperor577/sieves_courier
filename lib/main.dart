@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           title: 'Sieves Courier',
           home: FutureBuilder(builder: (context, AsyncSnapshot<bool> snapshot) {
               if (snapshot.connectionState.index != 3) {
-               return CircularProgressIndicator();
+               return Scaffold(body: Center(child: CircularProgressIndicator()));
               } else {
                 if (snapshot.hasData && snapshot.data != null && snapshot.data == true) {
                   return auth.isAuth ? HomeScreen() : AuthByAuth0Screen();

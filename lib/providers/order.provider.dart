@@ -139,14 +139,16 @@ class OrderProvider with ChangeNotifier {
     int card = 0;
     int cash = 0;
     orders.forEach((element) {
-      total += element.value!.toInt();
-      element.transactions.forEach((transaction) {
-        if (transaction['payment_type_id'] == 1) {
-          card += int.parse(transaction['amount'].toString());
-        } else {
-          cash += int.parse(transaction['amount'].toString());
-        }
-      });
+      if(element.currentStatus['type'] == 'finished' || element.currentStatus['type'] == 'delivered') {
+        total += element.value!.toInt();
+        element.transactions.forEach((transaction) {
+          if (transaction['payment_type_id'] == 1) {
+            card += int.parse(transaction['amount'].toString());
+          } else {
+            cash += int.parse(transaction['amount'].toString());
+          }
+        });
+      }
     });
     _analyticsDelivery = {
       "total": total,
